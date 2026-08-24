@@ -19,11 +19,14 @@ return new class extends Migration
             $table->string('username')->unique(); // Login name
             $table->string('nickname')->nullable(); // Display name
 
+            // Invited
+            $table->foreignIdFor();
+
             // Security
-            $table->string('email')->unique()->nullable(); // Optional: for password resets
+            $table->string('email')->nullable(); // Optional: for password resets
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('status')->index(); // active / suspended / banned
+            $table->string('status')->index()->default('active'); // active / suspended / banned
 
             // Tokens
             $table->rememberToken();

@@ -21,7 +21,7 @@
         </ul>
         <ul class="navbar-nav">
                 <li class="nav-item">
-                <a href="#TODO" class="btn btn-secondary">Login</a>
+                <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
             </li>
         </ul>
         @endguest

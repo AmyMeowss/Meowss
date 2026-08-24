@@ -8,10 +8,11 @@
     </head>
     <body>
         @section('navbar')
-            @include('layouts._navbar')
+            @include('shared/navbar')
         @show
 
         <div class="container">
+            <!-- Content -->
             @yield('content')
         </div>
 
