@@ -1,8 +1,10 @@
-<div class="navbar bg-dark navbar-dark navbar-expand-sm">
+<div class="navbar bg-dark navbar-dark navbar-expand-sm mb-2">
 
     <div class="container-fluid">
 
         {{-- Navbar --}}
+        @guest
+        <!-- Guest nav -->
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link active">{{ config('app.name') }}</a>
@@ -18,7 +20,29 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            @auth
+                <li class="nav-item">
+                <a href="#TODO" class="btn btn-secondary">Login</a>
+            </li>
+        </ul>
+        @endguest
+
+        @auth
+        <!-- Authenticated nav -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link active">{{ config('app.name') }}</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Feed</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link">Discover</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="btn btn-primary">Post</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">[USERNAME]</a>
                 <ul class="dropdown-menu">
@@ -28,13 +52,8 @@
                     <li><a class="dropdown-item" href="#">Logout</a></li>
                 </ul>
             </li>
-            @endauth
-            @guest
-                <li class="nav-item">
-                <a href="#TODO" class="btn btn-secondary">Login</a>
-            </li>
-            @endguest
         </ul>
+        @endauth
 
     </div>
 
