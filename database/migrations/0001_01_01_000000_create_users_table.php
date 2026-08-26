@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('username')->unique(); // Login name
             $table->string('nickname')->nullable(); // Display name
 
-            // Invited
-            $table->foreignIdFor();
+            // Invite code used
+            $table->foreignId('invitation_id');
 
             // Security
             $table->string('email')->nullable(); // Optional: for password resets

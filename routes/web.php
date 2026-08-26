@@ -10,6 +10,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Auth
 Route::controller(AuthController::class)->prefix('auth')->middleware('guest')->group(function () {
+    // Login
     Route::get('/login', 'LoginPage')->name('login');
     Route::post('/login', 'LoginForm');
+
+    // Register
+    Route::get('/register', 'RegisterPage')->name('register');
+    Route::post('/register', 'RegisterForm');
 });
