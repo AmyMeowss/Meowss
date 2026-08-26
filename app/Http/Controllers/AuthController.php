@@ -55,12 +55,35 @@ class AuthController extends Controller
         // Verify username
         // TODO: verify if it meets the requirements
 
+        // Find invitation
+        $invitation = Invitation::where('code', '=', $credentials['code'])->first();
+        if (!$invitation) {
+            // Invalid code
+            return back()->withErrors([
+                'code' => 'Invalid invitation code given.'
+            ]);
+        }
+        if ($invitation['isUsed'] == true) {
+            // Invalid code
+            return back()->withErrors([
+                'code' => 'Invitation code has already been used.'
+            ]);
+        }
+
         // Create new user
-        $NewUser = User::create([
-            'username' => $username,
-            'nickname' => $username,
-            'email' => $credentials['email'],
-            'password' => $credentials['password']
-        ]);
+        $NewUser = new User;
+        $NewUser['username'] = $username;
+        $NewUser['nickname'] = $username;
+        $NewUser['email'] = $credentials['email'];
+        $NewUser['password'] = $credentials['password'];
+        $NewUser['invitation_id'] = $invitation['id'];
+        $NewUser->save();
+
+        // Update invitation
+        $invitation['isUsed'] = true;
+        $invitation['user_id'] = $NewUser['id'];
+        $invitation->save();
+
+        return back();
     }
 }
