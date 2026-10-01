@@ -33,12 +33,4 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class);
     }
-
-    public function invitations() {
-        return $this->hasMany(Invitation::class);
-    }
-
-    public function invitation_code() {
-        return $this->belongsTo(Invitation::class, 'invitation_id');
-    }
 }
