@@ -20,20 +20,6 @@
                         <small>Your unique username. Lowercase letters / numbers / . / _ are accepted.</small>
                     </div>
 
-                    {{-- Email --}}
-                    <div class="form-group mb-2">
-                        <label for="email">Email (optional)</label>
-                        <input class="form-control" type="text" name="email" id="email" placeholder="Email">
-                        <small>This field is optional. Your email is only used for account recovery.</small>
-                    </div>
-
-                    {{-- Invite code --}}
-                    <div class="form-group mb-2">
-                        <label for="code">Invitation code</label>
-                        <input class="form-control" type="text" name="code" id="code" placeholder="00000000-0000-0000-0000-000000000000">
-                        <small>Our platform is invite only. Please enter your invitation code.</small>
-                    </div>
-
                     {{-- Password --}}
                     <div class="form-group mb-2">
                         <label for="password">Password</label>
@@ -51,10 +37,6 @@
                 </form>
 
                 <p>Already have an account? <a href="{{ route('login') }}">Login</a>!</p>
-
-                <hr />
-                <h3>Don't have an invitation code?</h3>
-                <p>Don't worry, you can join the waitlist by filling in this <a href="#TODO">quick form</a> :)</p>
             </div>
         </div>
     </div>

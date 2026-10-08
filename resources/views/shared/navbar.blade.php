@@ -9,15 +9,6 @@
             <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link active">{{ config('app.name') }}</a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Feed</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link">Discover</a>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('home') }}" class="btn btn-primary">Post</a>
-            </li>
         </ul>
         <ul class="navbar-nav">
                 <li class="nav-item">
@@ -33,24 +24,13 @@
                 <a href="{{ route('home') }}" class="nav-link active">{{ config('app.name') }}</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Feed</a>
+                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link">Discover</a>
+                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Posts</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="btn btn-primary">Post</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">[USERNAME]</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Notifications</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
+                <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}">Settings</a>
             </li>
         </ul>
         @endauth

@@ -20,11 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
 
             // Content
-            $table->string('content', 512);
-
-            // Status
-            // visible / hidden / removed
-            $table->string('status')->index();
+            $table->string('content', 256);
 
             // Times
             $table->timestamps();
